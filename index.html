@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<meta charset="UTF-8">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="scripts/libs/bootstrap.min.css">
+</head>
+<body ng-app="rutasApp" class="container">
+
+<h1>Hola mundo cruel</h1>
+
+<div class="list-group col-xs-3">
+	<a ui-sref="categoria" class="list-group-item">Ir a Categoria</a><br>
+	<a ui-sref="entidad" class="list-group-item">Ir a Entidad</a> <br>
+	<a ui-sref="imagenes" class="list-group-item">Ir a Imagenes del Grado Once</a> <br>
+</div>
+
+
+
+
+<div class="col-xs-8">
+	<div class="mivista" ui-view></div>
+</div>
+
+<script type="text/javascript" src="scripts/libs/angular.js"></script>
+<script type="text/javascript" src="scripts/libs/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/libs/angular-ui-router.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/CategoriasCtrl.js"></script>
+<script type="text/javascript" src="scripts/EntidadesCtrl.js"></script>
+</body>
+</html>

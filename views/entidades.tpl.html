@@ -1,0 +1,73 @@
+<h1>Hola Aqui estan las entidades</h1>
+<br>
+<h3> Mirando Materias </h3>
+<div ng-show="mostrarForm"  class="formulario">
+  <form class="form form-inline" ng-submit="saveNewEntidad()">
+     <h3>Crear una Entidades  </h3>
+    <input ng-model="EntidadNueva.nombre" type="text" class="form-control" placeholder="Ingrese el nombre"/>
+    <input ng-model="EntidadNueva.logo" type="text" class="form-control" placeholder="Ingrese el logo"/>
+
+    <input ng-model="EntidadNueva.direccion" type="text" class="form-control" placeholder="Ingrese el direccion"/>
+
+    <input ng-model="EntidadNueva.dirigente" type="text" class="form-control" placeholder="Ingrese el dirigente"/>
+
+
+    <input ng-model="EntidadNueva.evento" type="text" class="form-control" placeholder="Ingrese el evento"/>
+
+
+
+
+
+    <input type="submit" class="btn btn-success" value="crear" ngclick="EntiNueva()"/>
+    <input type="button" class="btn btn-warning" ng-click="mostrarForm=false" value="Cancelar" />
+  </form>
+</div>
+<hr/>
+
+<button ng-show="btCrearMostrar=true" ng-click="mostrarForm=true"  class="btn btn-primary">Crear Entidad</button>
+
+<div ng-show="editarEntidad"  class="formulario">
+  <h3>Editar  {{ EntidadActual.nombre }}:</h3>
+  <form class="form form-inline" ng-submit="guardarEditarEntidad()">
+    <input class="form-control" ng-model="EntidadActual.Nombre" type="text" placeholder="Escriba Nombre" />
+    <input class="form-control" ng-model="EntidadActual.logo" type="text" placeholder="Escriba logo" />
+
+    <input class="form-control" ng-model="EntidadActual.logo" type="text" placeholder="Escriba logo" />
+
+    <input class="form-control" ng-model="EntidadActual.Direccion" type="text" placeholder="Escriba direccion" />
+
+    <input class="form-control" ng-model="EntidadActual.Dirigente" type="text" placeholder="Escriba dirigente" />
+
+    <input class="form-control" ng-model="EntidadActual.Evento" type="text" placeholder="Escriba evento" />
+
+    <input type="submit" class="btn btn-primary" value="Guardar" />
+  </form>
+
+</div>
+
+<table class="table table-hover">
+  <thead>
+	 <tr>
+		  
+		  <td>Nombre</td>
+		  <td>Logo</td>
+		  <td>Dirección</td>
+		  <td>Dirigente</td>
+	 </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="(key, Entidad) in Entidad">
+  	   <td>{{ key+1}}</td>
+  	   <td>{{ Entidad.Nombre  }}</td>
+  	   <td>{{ Entidad.logo  }}</td>
+  	   <td>{{ Entidad.Direccion  }}</td>
+  	   <td>{{ Entidad.Dirigente }}</td>
+  	   
+  	   <td>
+  		    <a href="#" ng-click="editarEntidad(value)">Editar</a>
+  		    <a href="#" ng-click="eliminarEntidad(value)">Eliminar</a>
+  	   </td>
+    </tr>
+  </tbody>
+</table>

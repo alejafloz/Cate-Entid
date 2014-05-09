@@ -1,0 +1,48 @@
+
+<h3> Mirando Materias </h3>
+<div ng-show="mostrarForm"  class="formulario">
+  <form class="form form-inline" ng-submit="saveNewMateria()">
+     <h3>Crear una categorias  </h3>
+    <input ng-model="cateNueva.nombre" type="text" class="form-control" placeholder="Ingrese el nombre"/>
+    <input ng-model="cateNueva.nivel" type="text" class="form-control" placeholder="Ingrese el nivel"/>
+
+    <input type="submit" class="btn btn-success" value="Crear"/>
+    <input type="button" class="btn btn-warning" ng-click="mostrarForm=false" value="Cancelar" />
+  </form>
+</div>
+<hr/>
+
+<button ng-show="btCrearMostrar=true" ng-click="mostrarForm=true"  class="btn btn-primary">Crear Categoria</button>
+
+<div ng-show="EditarCategoria" class="formulario">
+  <h3>Editar alumno {{ categoriaActual.nombre }}:</h3>
+  <form class="form form-inline" ng-submit="guardarEditarCategoria()">
+    <input class="form-control" ng-model="categoriaActual.nombre" type="text" placeholder="Escriba Nombre" />
+    <input class="form-control" ng-model="categoriaActual.grupo" type="text" placeholder="Escriba Grupo" />
+    <input type="submit" class="btn btn-primary" value="Guardar" />
+  </form>
+
+</div>
+
+<table class="table table-hover">
+  <thead>
+	 <tr>
+		  <td>No</td>
+		  <td>Nombre</td>
+		  <td>Grupo</td>
+		  <td>Edit</td>
+	 </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="(key, categoria) in categoria">
+  	   <td>{{ key+1}}</td>
+  	   <td>{{ categoria.nombre  }}</td>
+  	   <td>{{ categoria.grupo }}</td>
+  	   <td>
+  		    <a href="#" ng-click="editarCategoria(value)">Editar</a>
+  		    <a href="#" ng-click="eliminarCategoria(value)">Eliminar</a>
+  	   </td>
+    </tr>
+  </tbody>
+</table>
